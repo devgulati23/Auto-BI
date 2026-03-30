@@ -17,13 +17,13 @@ from reportlab.lib import colors
 from streamlit_cookies_manager import EncryptedCookieManager
 
 # ---------- CONFIG ----------
-st.set_page_config(page_title="Auto BI Analytics Tool", layout="wide")
+st.set_page_config(page_title="Luminant BI Analytics Tool", layout="wide")
 
 API_KEY = "AIzaSyA_Rcb6UVBQSqqH_9jBSXeEkbZUn3jnT3k"
 
 # ---------- COOKIE SETUP ("Remember Me") ----------
 cookies = EncryptedCookieManager(
-    prefix="autobi_",
+    prefix="luminantbi_",
     password="super-secret-bca-project-password" 
 )
 if not cookies.ready():
@@ -361,7 +361,7 @@ def generate_report(df, insights):
     styles = getSampleStyleSheet()
     elements = []
 
-    elements.append(Paragraph("Auto BI - Automated Data Analysis Report", styles['Title']))
+    elements.append(Paragraph("Luminant BI - Automated Data Analysis Report", styles['Title']))
     elements.append(Spacer(1, 20))
 
     elements.append(Paragraph("1. Dataset Overview", styles['Heading2']))
@@ -450,7 +450,7 @@ if st.session_state.user is None:
     login_container = st.empty()
     
     with login_container.container():
-        st.title("🔐 Auto BI")
+        st.title("🔐 Luminant BI")
         mode = st.radio("", ["Login", "Sign Up"], horizontal=True)
         username = st.text_input("Username")
         email = st.text_input("Email")
@@ -479,7 +479,7 @@ if st.session_state.user is None:
     st.stop()
 
 # ---------- MAIN APP ----------
-st.title("📊 Auto BI Dashboard")
+st.title("📊 Luminant BI Dashboard")
 
 with st.sidebar:
     st.success(f"Logged in as {st.session_state.user['username']}")
